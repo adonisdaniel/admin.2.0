@@ -6,6 +6,11 @@ export default [
     name: 'login',
     component: LoginViewVue
   },
+  {
+    path: '/',
+    name: 'home',
+    component: LoginViewVue
+  },
   // {
   //   path: '/about',
   //   name: 'about',

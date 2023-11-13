@@ -1,7 +1,7 @@
 <template>
   <form @submit.prevent="handleSubmit">
     <div class="mb-6">
-      <InputComponent :id="'email'" :placeholder="'name@gmail.com'" :type="'email'" :title="$t('inputs.user_name')"
+      <InputComponent :id="'text'" :placeholder="'JohnDoe'" :type="'text'" :title="$t('inputs.user_name')"
         :required="false" :model-value="username" @update:model-value="newvalue => username = newvalue" />
     </div>
     <div class="mb-6">
@@ -28,6 +28,7 @@ import ButtonComponent from './ButtonComponent.vue';
 import CheckBoxComponent from './CheckBoxComponent.vue';
 import InputComponent from './InputComponent.vue';
 import { useLoginStore } from '@/store';
+import router from '@/router';
 
 const username = ref('');
 const password = ref('');
@@ -41,6 +42,8 @@ const reset = () => {
 const handleSubmit = async () => {
   await loginStore.login(username.value, password.value);
   reset()
+  if (!loginStore.isLogged) return
+  router.push({ name: 'home' })
 }
 </script>
 
