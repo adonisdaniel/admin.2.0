@@ -5,13 +5,14 @@
         <div class="login-img w-full min-h-screen absolute top-0 md:relative"></div>
       </div>
       <div class="justify-self-center self-center w-10/12 grid justify-center grid-cols-1 z-50">
-        <div
-          class="block p-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800/75 dark:border-gray-700 dark:hover:bg-gray-700/90 w-4/5 justify-self-center">
-          <div class="my-6 text-2xl font-bold tracking-tight text-gray-900 dark:text-rose-200 text-center">{{
-            $t('login.welcome') }}
+        <fwb-card class="w-4/5 justify-self-center border-none dark:bg-slate-800/60">
+          <div class="p-5">
+            <div class="my-6 text-2xl font-bold tracking-tight text-gray-900 dark:text-rose-200 text-center">{{
+              $t('login.welcome') }}
+            </div>
+            <FormComponentVue />
           </div>
-          <FormComponentVue />
-        </div>
+        </fwb-card>
         <div class="mt-5 text-center">
           <FooterComponent />
         </div>
@@ -23,6 +24,8 @@
 <script setup lang="ts">
 import FooterComponent from '@/components/FooterComponent.vue';
 import FormComponentVue from '@/components/FormComponent.vue'
+import { FwbCard } from 'flowbite-vue';
+
 </script>
 
 <style scoped>

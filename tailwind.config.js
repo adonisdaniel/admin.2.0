@@ -2,10 +2,14 @@
 export default {
   content: [
     "./src/**/*.{html, js, ts, vue}",
-    "./src/**/*"
+    "./src/**/*",
+    'node_modules/flowbite-vue/**/*.{js,jsx,ts,tsx}',
+    'node_modules/flowbite/**/*.{js,jsx,ts,tsx}'
   ],
   theme: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    import('flowbite/plugin')
+  ],
 }
