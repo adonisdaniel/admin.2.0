@@ -1,3 +1,4 @@
+import HomeViewVue from "@/views/pages/dashboard/HomeView.vue";
 import LoginViewVue from "@/views/pages/login/LoginView.vue";
 
 export default [
@@ -9,7 +10,7 @@ export default [
   {
     path: '/',
     name: 'home',
-    component: LoginViewVue
+    component: HomeViewVue
   },
   // {
   //   path: '/about',

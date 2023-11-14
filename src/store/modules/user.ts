@@ -32,14 +32,19 @@ const useUserStore = defineStore('user', {
   actions: {
     setUser(payload: User) {
       this.user = payload
+      localStorage.setItem('user', JSON.stringify(this.user))
     },
     setToken(payload: string) {
       this.token = payload
+      localStorage.setItem('token', this.token)
     }
   },
   getters: {
     getUserRole(): string {
       return this.user.role.name
+    },
+    getUserFromStorage(): User {
+      return JSON.parse(localStorage.getItem('user')!) as User
     }
   }
 })
