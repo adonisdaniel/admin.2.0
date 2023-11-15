@@ -1,4 +1,17 @@
 <template>
+  <div class="flex items-center mb-6 justify-between">
+    <a href="/" class="inline-flex ms-2 md:me-24">
+      <img src="@/assets/images/SPRINT_GAMING_PNG.png" class="h-8 me-3" alt="FlowBite Logo" />
+    </a>
+    <fwb-button color="pink" outline pill square class="md:hidden" @click="handleMenu('handleMenu')">
+      <svg class="w-2 h-2 text-rose-800 dark:text-rose-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+        fill="none" viewBox="0 0 14 14">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+      </svg>
+    </fwb-button>
+  </div>
+  <!-- <hr> -->
   <template v-for="(item, i) in getMenuItems" :key="i">
     <!-- ITEMS WITHOUT SUB ITEMS -->
 
@@ -48,9 +61,11 @@
 
 <script setup lang="ts">
 import router from '@/router';
-import { FwbSidebarItem, FwbSidebarDropdownItem } from 'flowbite-vue'
+import { FwbSidebarItem, FwbSidebarDropdownItem, FwbButton } from 'flowbite-vue'
 import { useMenuStore } from '@/store'
 const menu = useMenuStore();
 const { getMenuItems } = menu;
+
+const handleMenu = defineEmits(['handleMenu'])
 
 </script>

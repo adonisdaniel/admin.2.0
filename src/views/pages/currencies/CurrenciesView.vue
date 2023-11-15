@@ -1,6 +1,6 @@
 <template>
   <MainLayout>
-    Home
+    Currencies
   </MainLayout>
 </template>
 
@@ -8,3 +8,5 @@
 import MainLayout from '@/views/layouts/MainLayout.vue';
 
 </script>
+
+<style scoped></style>

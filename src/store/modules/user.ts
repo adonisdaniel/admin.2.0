@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
 import type { User } from '@/interfaces/User'
+import { useLoginStore } from '..'
 
 interface Store {
   user: User
@@ -32,11 +33,17 @@ const useUserStore = defineStore('user', {
   actions: {
     setUser(payload: User) {
       this.user = payload
-      localStorage.setItem('user', JSON.stringify(this.user))
+      localStorage.setItem('user', JSON.stringify(payload))
     },
     setToken(payload: string) {
       this.token = payload
-      localStorage.setItem('token', this.token)
+      localStorage.setItem('token', payload)
+    },
+    logout() {
+      const loginStore = useLoginStore();
+      loginStore.logged = false;
+      this.setUser(initialUser);
+      this.setToken('');
     }
   },
   getters: {
@@ -45,7 +52,7 @@ const useUserStore = defineStore('user', {
     },
     getUserFromStorage(): User {
       return JSON.parse(localStorage.getItem('user')!) as User
-    }
+    },
   }
 })
 
