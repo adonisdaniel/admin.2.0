@@ -7,9 +7,13 @@ const router = createRouter({
 })
 
 router.beforeEach((to, _, next) => {
+
   if (!to.matched.length) {
     next({ name: 'login' })
   }
+
+  document.title = `${to.name as string} | SPRINT GAMING`.toUpperCase()
+
   next()
 })
 
