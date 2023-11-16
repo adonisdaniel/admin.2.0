@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
 import type { User } from '@/interfaces/User'
 import { useLoginStore } from '..'
+import { roulette_api } from '@/api/roulette_api'
 
 interface Store {
   user: User
@@ -38,6 +39,8 @@ const useUserStore = defineStore('user', {
     setToken(payload: string) {
       this.token = payload
       localStorage.setItem('token', payload)
+      roulette_api.defaults.headers.common["x-token"] = payload;
+      roulette_api.defaults.headers.common["authentication-x-token"] = payload;
     },
     logout() {
       const loginStore = useLoginStore();

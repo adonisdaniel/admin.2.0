@@ -2,11 +2,11 @@
   <form @submit.prevent="handleSubmit">
     <div class="mb-6">
       <fwb-input placeholder="JohnDoe" :label="$t('inputs.user_name')" v-model="username"
-        class="dark:bg-slate-900/5 outline-none" />
+        class="dark:bg-slate-900/5 outline-none" required />
     </div>
     <div class="mb-6">
       <fwb-input :label="$t('inputs.password')" v-model="password" type="password"
-        class="dark:bg-slate-900/5 outline-none" />
+        class="dark:bg-slate-900/5 outline-none" required autocomplete="on" />
     </div>
     <div class="flex items-start mb-6">
       <fwb-checkbox id="rememberMe" :required="false" :label="$t('inputs.remember_me')" />

@@ -39,7 +39,7 @@
     </div>
   </nav>
 
-  <div class="flex h-screen">
+  <div class="flex min-h-screen">
     <aside id="logo-sidebar"
       class="h-full transition-transform  bg-white border-r border-gray-200  dark:bg-gray-800 dark:border-gray-700 sm:translate-x-0 -translate-x-full shrink-0 absolute md:fixed top-0 w-screen md:w-max pt-3 z-50"
       aria-label="Sidebar" ref="sidebar" data-sidebar>

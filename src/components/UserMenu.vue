@@ -57,7 +57,16 @@ import { computed } from 'vue';
 import { ref } from 'vue';
 
 const userStore = useUserStore();
-const { userName, email } = userStore.user;
+const userName = ref('');
+const email = ref('');
+
+const verifyUser = () => {
+  const { user } = userStore;
+  if (!user) return signOut();
+  const { userName: user_name, email: user_email } = user;
+  userName.value = user_name;
+  email.value = user_email;
+}
 
 const dropdown = ref();
 const languages = computed(() => ['ES', 'EN'])
@@ -71,6 +80,7 @@ const handleDropdown = () => {
   dropdown.value.classList.toggle('hidden')
 }
 
+verifyUser()
 </script>
 
 <style scoped></style>
