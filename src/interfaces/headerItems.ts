@@ -20,5 +20,6 @@ export type typeBodyItems = {
   endpointRollback: string
   _id: string,
   itemHasActions: boolean,
-  configs?: typeActions
+  configs?: typeActions,
+  token?: string
 }

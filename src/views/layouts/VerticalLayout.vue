@@ -56,7 +56,7 @@
         <slot />
 
       </div>
-      <FooterComponent class="fixed bottom-0 left-0 p-3 bg-slate-950 text-white w-full text-sm z-40" />
+      <FooterComponent class="relative bottom-0 left-0 p-3 text-white w-full text-sm z-40" />
     </div>
   </div>
 </template>

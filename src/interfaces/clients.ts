@@ -21,3 +21,13 @@ export interface Client {
   __v: number;
   loaderLogo?: string;
 }
+
+
+export interface CLientUpdate {
+  name: string
+  token: string
+  endpointAuth: string
+  endpointBet: string
+  endpointWin: string
+  endpointRollback: string
+}

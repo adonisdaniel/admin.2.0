@@ -1,0 +1,1 @@
+export const games = ['roulettes', 'dragon tigers', 'external games', 'rueda de la fortuna']

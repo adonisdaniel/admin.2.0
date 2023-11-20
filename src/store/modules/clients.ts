@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 import type { typeBodyItems, typeHeaderItems } from "@/interfaces/headerItems";
-import type { ClientsRouletteAPI, Client } from "@/interfaces/clients";
+import type { ClientsRouletteAPI, Client, CLientUpdate } from "@/interfaces/clients";
 import { mockClients, tableHeader } from "../helpers/clientsTableItems";
 import { roulette_api } from "@/api/roulette_api";
 
@@ -15,9 +15,10 @@ const useClientsStore = defineStore('clientsStore', {
       return this.tableHeader
     },
     getTableBody(): typeBodyItems[] {
-      return this.clients.map(({ _id, name, logo, status, endpointAuth, endpointBet, endpointRollback, endpointWin }) => ({
+      return this.clients.map(({ _id, name, logo, status, endpointAuth, endpointBet, endpointRollback, endpointWin, token }) => ({
         name,
         logo,
+        token,
         games: { info: 'GAMES', isAction: true },
         url: { info: 'URL', isAction: true },
         status: {
@@ -35,6 +36,9 @@ const useClientsStore = defineStore('clientsStore', {
           remove: { title: 'REMOVER', event: 'handle-remove' }
         }
       }))
+    },
+    getClients(): any {
+      return this.clients.map(({ name, _id }) => ({ name, value: _id }))
     }
   },
   actions: {
@@ -49,6 +53,9 @@ const useClientsStore = defineStore('clientsStore', {
       } catch (error) {
         console.log('ERROR FETCHING CLIENTS', error);
       }
+    },
+    async updateClient(client: CLientUpdate) {
+      console.log('update', client);
     }
   }
 })

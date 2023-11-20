@@ -1,5 +1,5 @@
 <template>
-  <fwb-table>
+  <fwb-table v-if="bodyItems.length">
     <fwb-table-head>
       <fwb-table-head-cell v-for="(item, i) in headerItems" :key="i">
         <span :class="{ 'sr-only': item.hidden }">{{ item.info }}</span>
@@ -47,6 +47,9 @@
       </fwb-table-row>
     </fwb-table-body>
   </fwb-table>
+  <fwb-alert icon type="info" v-else>
+    No hay resultados.
+  </fwb-alert>
 </template>
 
 <script setup lang="ts">
@@ -61,7 +64,8 @@ import {
   FwbAvatar,
   FwbDropdown,
   FwbListGroup,
-  FwbListGroupItem
+  FwbListGroupItem,
+  FwbAlert
 } from 'flowbite-vue'
 import type { typeHeaderItems, typeBodyItems } from "@/interfaces/headerItems";
 

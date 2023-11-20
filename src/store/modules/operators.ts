@@ -34,9 +34,9 @@ const useOperatorStore = defineStore('operatorStore', {
     }
   },
   actions: {
-    async fetchOperators() {
+    async fetchOperators(options = {}) {
       try {
-        const { data, status } = await roulette_api.get('operators')
+        const { data, status } = await roulette_api.get('operators', options)
 
         if (status > 201) return this.operators = [];
 
