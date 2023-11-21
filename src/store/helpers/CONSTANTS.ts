@@ -19,3 +19,6 @@ export const INDIVIDUAL_PAYMENT_ROUTE_NAME = 'individual-payment'
 export const GENERAL_PAYMENT_ROUTE_NAME = 'general-payment'
 export const REPORTS_ROUTE_NAME = 'reports'
 export const REPORTS_TRANSACTION_ROUTE_NAME = 'transactions'
+
+export const HANDLE_EDIT = 'handle-edit'
+export const HANDLE_REMOVE = 'handle-remove'
